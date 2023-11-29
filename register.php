@@ -3,8 +3,10 @@
         <title> Register </title>
     </head>
 <body>
+<center>
     <form method="POST">
-        Enter First Name: <input type="text" name="fname"><br>
+        <!-- all fields are required -->
+        Enter First Name: <input type="text" name="fname" required ><br>
         Enter Last Name: <input type="text" name="lname"><br>
         Enter Email: <input type="email" name="email"><br>
         Enter Username: <input type="text" name="username"><br>
@@ -12,6 +14,7 @@
         Re-enter Password: <input type="password" name="password2"><br>
         <input type="submit" name="submit" value="Register">
     </form>
+</center>
 </body>
 </html>
 
