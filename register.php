@@ -6,13 +6,33 @@
 <center>
     <form method="POST">
         <!-- all fields are required -->
-        Enter First Name: <input type="text" name="fname" required ><br>
-        Enter Last Name: <input type="text" name="lname"><br>
-        Enter Email: <input type="email" name="email"><br>
-        Enter Username: <input type="text" name="username"><br>
-        Enter Password: <input type="password" name="password"><br>
-        Re-enter Password: <input type="password" name="password2"><br>
-        <input type="submit" name="submit" value="Register">
+        <table border='1'>
+            <tr>
+                <td colspan="2" align="center">Register Teacher</td>
+            </tr>
+            <tr>
+                <td>Enter First Name: </td><td><input type="text" name="fname" required ></td>
+            </tr>
+            <tr>
+
+                <td>Enter Last Name: </td><td><input type="text" name="lname"></td>
+            </tr>
+            <tr>
+                <td>Enter Email: </td><td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td>Enter Username: </td><td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>Enter Password: </td><td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>Re-enter Password: </td><td><input type="password" name="password2"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" name="submit" value="Register"></td>
+            </tr>
+        </table>
     </form>
 </center>
 </body>

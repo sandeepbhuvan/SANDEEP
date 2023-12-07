@@ -5,38 +5,67 @@
     <body>
         <center>
         <form action=" " method="post">
-            <input type="text" name="rollno" placeholder="Enter Roll No">
+            <select name="ktu">
+                <?php
+                    include 'conn.php';
+                    $s = "SELECT ktuid FROM stud;";
+                    $q = mysqli_query($conn,$s);
+                    while($r = mysqli_fetch_assoc($q))
+                    {
+                        echo "<option value='".$r['ktuid']."'>".$r['ktuid']."</option>";
+                    }
+                ?>
+            </select>
+            <select name="sub">
+                <?php
+                    include 'conn.php';
+                    $s = "SELECT DISTINCT sub FROM marks;";
+                    $q = mysqli_query($conn,$s);
+                    while($r = mysqli_fetch_assoc($q))
+                    {
+                        echo "<option value='".$r['sub']."'>".$r['sub']."</option>";
+                    }
+                ?>
             <input type="submit" name="update" value="Update">
         </form>
         </center>
     </body>
 </html>
-
+    
 <?php
 include 'conn.php';
 if([$_POST['update']])
 {
-    if(isset($_POST['rollno']))
+    if(isset($_POST['ktu']) && isset($_POST['sub']))
     {
-        $rollno = $_POST['rollno'];
-        $s = "SELECT * FROM stud WHERE rollno = '$rollno';";
+        $ktu = $_POST['ktu'];
+        $sub = $_POST['sub'];
+        $s = "SELECT * FROM marks WHERE ktuid = '$ktu' AND sub='$sub';";
         $q = mysqli_query($conn,$s);
         if(mysqli_num_rows($q))
         {
-            $rollno1 = $rollno;
-            $s1 = "SELECT * FROM marks WHERE rollno = '$rollno1';";
+            $ktu1 = $ktu;
+            $s1 = "SELECT * FROM marks WHERE ktuid = '$ktu1' AND sub='$sub';";
             $q1 = mysqli_query($conn,$s1);
             if(mysqli_num_rows($q1))
             {
+            $r = mysqli_fetch_array($q1);
+            $s1 = $r['s1'];
+            $s2 = $r['s2'];
+            $a1 = $r['a1'];
+            $a2 = $r['a2'];
             echo "<center>";
             echo "<form action='updatemarks.php' method='post'>";
-            echo "<input type='text' name='rollno' value='$rollno' readonly><br>";
-            echo "<input type='text' name='eng' placeholder='Enter English Marks'><br>";
-            echo "<input type='text' name='maths' placeholder='Enter Maths Marks'><br>";
-            echo "<input type='text' name='phy' placeholder='Enter Physics Marks'><br>";
-            echo "<input type='text' name='chem' placeholder='Enter Chemistry Marks'><br><br>";
-            echo "<input type='submit' name='update' value='Update'><br><br>";
-            echo "<input type='submit' name='delete' value='Delete Student'>";
+            echo "<table border='1'>";
+            echo "<tr><td colspan='2' align='center'>Update Marks</td></tr>";
+            echo "<tr><td>KTU ID</td><td><input type='text' name='ktu' value='$ktu' readonly></td></tr>";
+            echo "<tr><td>Subject</td><td><input type='text' name='sub' value='$sub' readonly></td></tr>";
+            echo "<tr><td>Series 1 Marks</td><td><input type='text' name='s1' value='$s1'></td></tr>";
+            echo "<tr><td>Series 2 Marks</td><td><input type='text' name='s2' value='$s2'></td></tr>";
+            echo "<tr><td>Assignment 1 Marks</td><td><input type='text' name='a1' value='$a1'></td></tr>";
+            echo "<tr><td>Assignment 2 Marks</td><td><input type='text' name='a2' value='$a2'></td></tr>";
+            echo "<tr><td colspan='2' align='center'><input type='submit' name='update' value='Update'></td></tr>";
+            echo "</table>";
             echo "</form>";
             echo "</center>";
             }
@@ -50,10 +79,10 @@ if([$_POST['update']])
 
     }
     else{
-        echo "<script> alert('Please enter roll no!')</script>";
+        echo "<script> alert('Please enter KTU ID!')</script>";
     }
 }
 else
 {
-    echo "<script> alert('Please enter roll no!')</script>";
+    echo "<script> alert('Please enter KTU ID!')</script>";
 }

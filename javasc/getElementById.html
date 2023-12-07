@@ -11,6 +11,8 @@
         <button onclick="document.getElementById('zoom').style.color='red'">Change color</button>
         <button onclick="document.getElementById('zoom').style.color = getRandomColor()">Random color</button>
         <button onclick="document.getElementById('zoom').innerHTML = 'Hello'">Change text</button>
+        <br><br>
+        <img src="off.jpg" id="bulb" onmouseover="document.getElementById('bulb').src='on.jpg'" onmouseout="document.getElementById('bulb').src='off.jpg'" >
         <script>
             function getRandomColor() {
                 var letters = '0123456789ABCDEF';
@@ -21,6 +23,5 @@
                 return color;
             }
         </script>
-
     </body>
 </html>
