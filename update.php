@@ -26,12 +26,12 @@
                         echo "<option value='".$r['sub']."'>".$r['sub']."</option>";
                     }
                 ?>
-            <input type="submit" name="update" value="Update">
+            <input type="submit" name="update" value="Search">
         </form>
         </center>
     </body>
 </html>
-    
+
 <?php
 include 'conn.php';
 if([$_POST['update']])
