@@ -33,7 +33,7 @@ if($_POST)
         echo "<center>";
         echo "<table border='1'>";
         echo "<tr><td align='center'> KTU ID </td><td align='center'>Internal Marks</td></tr>";
-        $s = "SELECT ktuid,s1,s2,a1,a2,att FROM marks WHERE sub='$sub';";
+        $s = "SELECT * FROM marks m , stud s WHERE m.ktuid = s.ktuid AND sub='$sub';";
         $q = mysqli_query($conn,$s);
         while($r = mysqli_fetch_assoc($q))
         {
@@ -60,7 +60,7 @@ if($_POST)
                 $attsum = 0;
             }
             $total = $ssum+$asum+$attsum;
-            echo "<tr><td>".$r['ktuid']."</td><td> ".$total." / 40 </td></tr>";
+            echo "<tr><td>".$r['ktuid']."</td><td>" . $r['name'] . "</td><td> ".$total." / 40 </td></tr>";
         }
         echo "</table>";
         echo "</center>";
