@@ -55,6 +55,7 @@ if([$_POST['update']])
             $s2 = $r['s2'];
             $a1 = $r['a1'];
             $a2 = $r['a2'];
+            $att = $r['att'];
             echo "<center>";
             echo "<form action='updatemarks.php' method='post'>";
             echo "<table border='1'>";
@@ -65,6 +66,7 @@ if([$_POST['update']])
             echo "<tr><td>Series 2 Marks</td><td><input type='text' name='s2' value='$s2'></td></tr>";
             echo "<tr><td>Assignment 1 Marks</td><td><input type='text' name='a1' value='$a1'></td></tr>";
             echo "<tr><td>Assignment 2 Marks</td><td><input type='text' name='a2' value='$a2'></td></tr>";
+            echo "<tr><td>Attendance</td><td><input type='text' name='att' value='$att'></td></tr>";
             echo "<tr><td colspan='2' align='center'><input type='submit' name='update' value='Update'></td></tr>";
             echo "</table>";
             echo "</form>";
@@ -80,10 +82,10 @@ if([$_POST['update']])
 
     }
     else{
-        echo "<script> alert('Please enter KTU ID!')</script>";
+        echo "<script> alert('Please select KTU ID!')</script>";
     }
 }
 else
 {
-    echo "<script> alert('Please enter KTU ID!')</script>";
+    echo "<script> alert('Please select KTU ID!')</script>";
 }

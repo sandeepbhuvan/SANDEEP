@@ -33,20 +33,24 @@
                 </td>
             </tr>
             <tr>
-                <td>Series 1 Marks: </td>
+                <td>Series 1 Marks(in 50): </td>
                 <td><input type="text" name="s1" required></td>
             </tr>
             <tr>
-                <td>Series 2 Marks: </td>
+                <td>Series 2 Marks(in 50): </td>
                 <td><input type="text" name="s2" required></td>
             </tr>
             <tr>
-                <td>Assignment 1 Marks: </td>
+                <td>Assignment 1 Marks(in 12): </td>
                 <td><input type="text" name="a1" required></td>
             </tr>
             <tr>
-                <td>Assignment 2 Marks: </td>
+                <td>Assignment 2 Marks(in 12): </td>
                 <td><input type="text" name="a2" required></td>
+            </tr>
+            <tr>    
+                <td>Attendance (in 100%): </td>
+                <td><input type="text" name="att" required></td>
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="submit" name="submit" value="Insert"></td>
@@ -70,7 +74,8 @@ if($_POST)
         $s2 = $_POST["s2"];
         $a1 = $_POST["a1"];
         $a2 = $_POST["a2"];
-        $s = "INSERT INTO marks VALUES('$ktu','$sub','$s1','$s2','$a1','$a2');";
+        $att = $_POST["att"];
+        $s = "INSERT INTO marks VALUES('$ktu','$sub','$s1','$s2','$a1','$a2','$att');";
         $q = mysqli_query($conn,$s);
         if($q)
         {
