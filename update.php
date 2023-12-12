@@ -25,6 +25,7 @@
                     {
                         echo "<option value='".$r['sub']."'>".$r['sub']."</option>";
                     }
+                
                 ?>
             <input type="submit" name="update" value="Search">
         </form>
