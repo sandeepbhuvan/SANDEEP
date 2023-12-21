@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Length</title>
+    <script>
+        function getLength() {
+            var input = document.getElementById("inputString");
+            var length = input.value.length;
+            document.getElementById("p1").innerHTML = "Length: " + length;
+        }
+
+        function Replace() {
+            var input = document.getElementById("inputString");
+            
+            
+    </script>
+</head>
+<body>
+    <input type="text" id="inputString" placeholder="Enter a string"> <br><br>
+    <button onclick="getLength()">Get Length</button>
+    <button onclick="Replace()">Replace</button>
+    <p id="p1"></p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Background Color</title>
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <button id="colorButton">Change Color</button>
+
+    <script>
+        document.getElementById("colorButton").addEventListener("click", function() {
+            var randomColor = 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')';
+            document.body.style.backgroundColor = randomColor;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Registration Form</title>
+    <script>
+        function validateForm() {
+            var name = document.forms["registrationForm"]["name"].value;
+            var email = document.forms["registrationForm"]["email"].value;
+            var password = document.forms["registrationForm"]["password"].value;
+            
+            if (name == "") {
+                alert("Please enter your name");
+                return false;
+            }
+            
+            if (email == "") {
+                alert("Please enter your email");
+                return false;
+            }
+            
+            if (password == "") {
+                alert("Please enter your password");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form name="registrationForm" onsubmit="return validateForm()" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

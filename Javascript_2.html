@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar Generator</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calendar Generator</h1>
+    <label for="year">Enter a year:</label>
+    <input type="number" id="year" min="1900" max="2100">
+    <button onclick="generateCalendar()">Generate Calendar</button>
+    <div id="calendar"></div>
+
+    <script>
+        function generateCalendar() {
+            var yearInput = document.getElementById("year");
+            var year = parseInt(yearInput.value);
+
+            var calendar = document.getElementById("calendar");
+            calendar.innerHTML = "";
+
+            var months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+
+            for (var i = 0; i < months.length; i++) {
+                var month = months[i];
+
+                var table = document.createElement("table");
+                var caption = document.createElement("caption");
+                caption.textContent = month + " " + year;
+                table.appendChild(caption);
+
+                var headerRow = document.createElement("tr");
+                var daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                for (var j = 0; j < daysOfWeek.length; j++) {
+                    var headerCell = document.createElement("th");
+                    headerCell.textContent = daysOfWeek[j];
+                    headerRow.appendChild(headerCell);
+                }
+                table.appendChild(headerRow);
+
+                var firstDay = new Date(year, i, 1);
+                var lastDay = new Date(year, i + 1, 0);
+                var numDays = lastDay.getDate();
+
+                var currentDay = 1;
+                var weekRow = document.createElement("tr");
+                for (var j = 0; j < firstDay.getDay(); j++) {
+                    var emptyCell = document.createElement("td");
+                    weekRow.appendChild(emptyCell);
+                }
+                while (currentDay <= numDays) {
+                    var dayCell = document.createElement("td");
+                    dayCell.textContent = currentDay;
+                    weekRow.appendChild(dayCell);
+
+                    if (weekRow.children.length === 7) {
+                        table.appendChild(weekRow);
+                        weekRow = document.createElement("tr");
+                    }
+
+                    currentDay++;
+                }
+                table.appendChild(weekRow);
+
+                calendar.appendChild(table);
+            }
+        }
+    </script>
+</body>
+</html>
